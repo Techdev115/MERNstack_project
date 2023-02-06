@@ -1,0 +1,4 @@
+/docs
+lib
+test/disabled
+!etc/docs

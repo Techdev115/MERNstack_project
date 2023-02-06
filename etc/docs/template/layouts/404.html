@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "meta.html"}}
+    <link rel="shortcut icon" href="{{.Site.BaseURL}}/s/img/favicon.ico">
+
+    <title>{{.Title}}</title>
+
+    {{ partial "assets/css.html" . }}
+  </head>
+
+  <body>
+  <!--header start-->
+  {{ partial "header/main.html" . }}
+  <!--header end-->
+
+  <div id="promo" class="jumbotron">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-6">
+        <h1>404: Page not found</h1>
+        <a href="/node-mongodb-native">
+          <div> Return to Docs Homepage </div>
+        </a>
+      </div>
+      <img class="col-md-2" id="mongodbNodelogo" src="s/img/node.png" alt="MongoDB Node Logo"></div>
+    </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {{ partial "footer.html" .}}
+      </div>
+    </div>
+  </div>
+  <!-- End footer -->
+
+
+<!-- javascripts -->
+{{ partial "assets/javascripts.html" . }}
+{{ partial "assets/analytics.html" . }}
+</body>
+</html>

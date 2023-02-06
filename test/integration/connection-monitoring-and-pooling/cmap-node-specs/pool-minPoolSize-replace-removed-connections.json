@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "style": "unit",
+  "description": "must replace removed connections up to minPoolSize",
+  "poolOptions": {
+    "minPoolSize": 2
+  },
+  "operations": [
+    {
+      "name": "ready"
+    },
+    {
+      "name": "waitForEvent",
+      "event": "ConnectionReady",
+      "count": 2
+    },
+    {
+      "name": "wait",
+      "ms": 1000
+    },
+    {
+      "name": "checkOut",
+      "label": "conn"
+    },
+    {
+      "name": "clear"
+    },
+    {
+      "name": "checkIn",
+      "connection": "conn"
+    },
+    {
+      "name": "ready"
+    },
+    {
+      "name": "waitForEvent",
+      "event": "ConnectionReady",
+      "count": 4
+    }
+  ],
+  "events": [
+    {
+      "type": "ConnectionReady",
+      "address": 42
+    },
+    {
+      "type": "ConnectionReady",
+      "address": 42
+    },
+    {
+      "type": "ConnectionCheckedOut",
+      "address": 42
+    },
+    {
+      "type": "ConnectionPoolCleared",
+      "address": 42
+    },
+    {
+      "type": "ConnectionCheckedIn",
+      "address": 42
+    },
+    {
+      "type": "ConnectionReady",
+      "address": 42,
+      "availableConnectionCount": 0,
+      "pendingConnectionCount": 1,
+      "totalConnectionCount": 1
+    },
+    {
+      "type": "ConnectionReady",
+      "address": 42,
+      "availableConnectionCount": 1,
+      "pendingConnectionCount": 1,
+      "totalConnectionCount": 2
+    }
+  ],
+  "ignore": [
+    "ConnectionPoolReady",
+    "ConnectionPoolCreated",
+    "ConnectionCreated",
+    "ConnectionClosed",
+    "ConnectionCheckOutStarted"
+  ]
+}
